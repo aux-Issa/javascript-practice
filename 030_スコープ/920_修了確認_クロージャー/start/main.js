@@ -15,3 +15,36 @@
  * ※前に行った計算結果をもとに四則演算を行います。
  * ※四則演算は"+","-","*","/"を数値ではさんで計算を行います。
  */
+
+function calcFactory(initialNumber){
+    function plus(target){
+        const newNumber = initialNumber + target;
+        console.log(newNumber)
+        initialNumber = newNumber
+    }
+    function minus(target){
+        const newNumber = initialNumber - target;
+        console.log(newNumber)
+        initialNumber = newNumber    }
+    function multiply(target){
+        const newNumber = initialNumber * target;
+        console.log(newNumber)
+        initialNumber = newNumber    }
+    function divide(target){
+        const newNumber = initialNumber / target;
+        console.log(newNumber)
+        initialNumber = newNumber    }
+
+    return{
+        plus,
+        minus,
+        multiply,
+        divide
+    }
+}
+const calc = calcFactory(10)
+console.log(calc)
+calc.plus(5); 
+calc.minus(3); 
+calc.multiply(3);
+calc.divide(2); 
