@@ -47,3 +47,4 @@ increment();
 increment();
 increment();
 increment();
+///////////incrementFactoryの中でnumがセットされた関数がincrementに代入される//////
