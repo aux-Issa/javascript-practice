@@ -24,7 +24,7 @@ setTimeout(console.log(result), 1000);
  * ※alertは第一引数に渡した文字列を画面のダイアログに表
  * 示する関数です。
  */
-// setTimeout(alert(result), 1000)
+setTimeout(alert(result), 1000)
 
 /**
  * 問題３：
