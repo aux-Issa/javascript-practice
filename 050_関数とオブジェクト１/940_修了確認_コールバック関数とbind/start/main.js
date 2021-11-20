@@ -5,25 +5,28 @@
  * ようにcalcFactory関数内の実装を変更してみてください。
  */
 function calcFactory(val, callback) {
+    function executionAfter1sec(string){
+        setTimeout(callback.bind(null, string), 1000)
+    }
     return {
         plus: function(target) {
             const newVal = val + target;
-            callback(`${val} + ${target} = ${newVal}`);
+            executionAfter1sec(`${val} + ${target} = ${newVal}`);
             val = newVal;
         },
         minus: function(target) {
             const newVal = val - target;
-            callback(`${val} - ${target} = ${newVal}`);
+            executionAfter1sec(`${val} - ${target} = ${newVal}`);
             val = newVal;
         },
         multiply: function(target) {
             const newVal = val * target;
-            callback(`${val} x ${target} = ${newVal}`);
+            executionAfter1sec(`${val} x ${target} = ${newVal}`);
             val = newVal;
         },
         divide: function(target) {
             const newVal = val / target;
-            callback(`${val} / ${target} = ${newVal}`);
+            executionAfter1sec(`${val} / ${target} = ${newVal}`);
             val = newVal;
         }
     };

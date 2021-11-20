@@ -1,6 +1,6 @@
 const person = {
     name: 'Tom',
-    bye: () => {
+    bye: function(){
         console.log('Bye ' + this.name);
     },
     hello: function (greeting) {
@@ -22,18 +22,33 @@ const person = {
      * ２．アロー関数
      * ３．thisを一旦変数に代入
      */
-
-
-    
+    hello1s(){
+        setTimeout(this.hello.bind(this, 'heloooooo, method1'), 1000)
+    },
+    hello1s2(){
+        setTimeout(() => {
+            this.hello('helloooo method2');
+        }, 2000)
+    },
+    hello1s3(){
+        const _this = this;
+        setTimeout(function(){
+            _this.hello('hellooooo method3')
+        }, 1000)
+    }
 }
-
+person.hello1s()
+person.hello1s2()
+person.hello1s3()
 /**
  * 問題１：
  * 1秒後に"hello Tom"
  * と出力されるように、以下のコード
  * の記載を変更しましょう。
  */
-setTimeout(person.hello, 1000);
+person.hello('Unko')
+// setTimeout(person.hello('hello000'), 1000);
+setTimeout(person.hello.bind(person, 'hello'), 1000);
 
 /**
  * 問題２：
@@ -41,7 +56,7 @@ setTimeout(person.hello, 1000);
  * と出力されるように、
  * 以下のコードを変更してください。
  */
-alert(person.hello);
+// alert(person.hello('hello'));
 
 /**
  * 問題３：
