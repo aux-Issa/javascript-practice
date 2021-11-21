@@ -42,6 +42,38 @@
  * User: Bob
  * login failed <- loginで失敗した場合
  */
+class User{
+  constructor(name){
+    this.name = name;
+    this.redirectUrl = ':/';
+  }
+  login(){
+    console.log('User ' + this.name)
+    return true
+  }
+  checkRoll(){
+    console.log('you have normal roll')
+    return true
+  }
+  redirect(){
+    console.log('redurect ' + this.redirectUrl)
+    return true
+  }
+}
+class AdminUser extends User {
+  constructor(name){
+    super(name);
+    this.redirectUrl = '/admin';
+  }
+  checkRoll(){
+    console.log('you have admin roll')
+    return true
+  }
+  redirect(){
+    console.log('redurect ' + this.redirectUrl)
+    return true
+  }
+}
 
 function loginController(user) {
   if (user.login()
@@ -52,3 +84,6 @@ function loginController(user) {
     console.log('login failed');
   }
 }
+const bob = new User("Bob")
+loginController(bob)
+loginController(new AdminUser('Issa'))
