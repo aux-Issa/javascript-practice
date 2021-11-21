@@ -16,8 +16,12 @@ class Person {
 
   hello() {
       console.log('hello ' + this.name);
-  }
+    }
 }
 
 const bob = new Person('Bob', 23);
-setTimeout(bob.hello, 1000);
+////answer/////
+setTimeout(bob.hello.bind(bob), 1000);
+setTimeout(function(){
+  bob.hello();
+}, 1000)
