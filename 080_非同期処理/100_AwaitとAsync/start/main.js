@@ -7,14 +7,23 @@ function sleep(val) {
   });
 }
 
-sleep(0).then(function(val) {
-  return sleep(val);
-}).then(function(val) {
-  return sleep(val);
-}).then(function(val) {
-  return sleep(val);
-}).then(function(val) {
-  return sleep(val);
-}).then(function(val) {
-  return sleep(val);
+async function init(){
+  let val = await sleep(0)
+  console.log(val)
+  return val
+}
+init().then(function(val){
+  console.log(val, 'thenだよ')
 })
+
+// sleep(0).then(function(val) {
+//   return sleep(val);
+// }).then(function(val) {
+//   return sleep(val);
+// }).then(function(val) {
+//   return sleep(val);
+// }).then(function(val) {
+//   return sleep(val);
+// }).then(function(val) {
+//   return sleep(val);
+// })
