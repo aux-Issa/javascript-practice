@@ -14,8 +14,12 @@ async function init(){
 }
 init().then(function(val){
   console.log(val, 'thenだよ')
+  return init(val)
+}).then(function(val){
+  console.log(val, 'then2なり')
 })
-
+const issa = init().then(function(val){return val})
+console.log(issa, 'issa')
 // sleep(0).then(function(val) {
 //   return sleep(val);
 // }).then(function(val) {
